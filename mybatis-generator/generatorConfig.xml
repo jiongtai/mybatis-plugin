@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 通用mapper所在目录 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.mapper.BaseMapper"/>
+        </plugin>
+
+        <!-- 数据库信息 ?useSSL=false -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://db链接/db名称"
+                        userId="db账号"
+                        password="db密码">
+        </jdbcConnection>
+
+        <!-- 对应生成的pojo所在包 -->
+        <javaModelGenerator targetPackage="com.dao.entity" targetProject="mybatis-generator/src/main/java"/>
+
+        <!-- 对应生成的mapper.xml所在目录 -->
+        <sqlMapGenerator targetPackage="mapper.xml" targetProject="mybatis-generator/src/main/resources"/>
+
+        <!-- 配置mapper对应的java映射 -->
+        <javaClientGenerator targetPackage="com.dao.mapper" targetProject="mybatis-generator/src/main/java" type="XMLMAPPER"/>
+
+        <!-- 数据库表 -->
+		<table tableName="customs_declaration"></table>
+		<table tableName="customs_declaration123333"></table>
+
+
+    </context>
+</generatorConfiguration>
